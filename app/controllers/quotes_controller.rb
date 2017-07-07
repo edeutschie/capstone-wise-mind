@@ -6,4 +6,10 @@ class QuotesController < ApplicationController
     render status: :ok, json: quotes
   end
 
+  def show
+    quote = Quote.find(params[:id])
+
+    render status: :ok, json: quote
+  end
+
 end
