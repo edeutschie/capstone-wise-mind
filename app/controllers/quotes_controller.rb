@@ -18,7 +18,7 @@ class QuotesController < ApplicationController
     if quote.save
       render status: :ok, json: { id: quote.id }
     else
-      render status: :bad_request, json: { errors: quote.errors.messages}
+      render status: :bad_request, json: { errors: quote.errors.messages }
     end
   end
 

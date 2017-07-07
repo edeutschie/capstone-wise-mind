@@ -10,7 +10,7 @@ class Quote < ApplicationRecord
   validates :theme, presence: true, inclusion: {
     in: [ "Motivational", "Creativity", "My Quotes", "Shuffle"]
   }
-  validates :public, presence: true, inclusion: { in: [ true, false ] }
+  validates :public, inclusion: { in: [ true, false ] }
 
   # def rando
   #   return 5 + 5
