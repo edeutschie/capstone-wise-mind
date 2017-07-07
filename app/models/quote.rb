@@ -16,5 +16,5 @@ class Quote < ApplicationRecord
   #   return 5 + 5
   # end
   #validates :user_id, presence: true, numericality: {only_integer: true, greater_than: 0}, on: :create
-  end
+
 end
