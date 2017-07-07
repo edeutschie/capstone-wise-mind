@@ -25,9 +25,12 @@ gem 'puma', '~> 3.0'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
+gem 'simplecov', :require => false, :group => :test
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'binding_of_caller'
 end
 
 group :development do
@@ -43,10 +46,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :development do
   gem 'better_errors'
   gem 'pry-rails'
+
+  gem 'dotenv-rails'
+
 end
 
 gem 'awesome_print'
 gem 'foundation-rails'
+
 group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
