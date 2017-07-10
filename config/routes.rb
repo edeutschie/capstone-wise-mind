@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   get 'users', to: 'users#index', as: 'users'
   get 'users/:id', to: 'users#show', as: 'user'
   post 'users', to: 'users#create'
-  delete 'user/:id', to: 'users#destroy'
+  delete 'users/:id', to: 'users#destroy'
 
 end

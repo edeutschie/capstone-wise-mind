@@ -22,6 +22,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    user = User.find_by(id: params[:id])
+    if user.nil?
+      render status: :not_found
+    else
+      # if quote.user_id == user_id
+        user.destroy
+        render status: :no_content
+      # else
+      #   render status: :unauthorized, json: { error: 'You must have submitted a quote to be authorized to delete it.' }
+      # end
+    end
+  end
+
   private
 
   def user_params
