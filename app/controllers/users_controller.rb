@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     puts params[:user].to_hash
     if user.save
-      render status: :ok, json: { id: quote.id }
+      render status: :ok, json: { username: user.username, id: user.id }
     else
       render status: :bad_request, json: { errors: user.errors.messages }
     end
@@ -24,8 +24,8 @@ class UsersController < ApplicationController
 
   private
 
-  def quote_params
-    params.require(:quote).permit(:text, :author, :theme, :public, :user_id)
+  def user_params
+    params.require(:user).permit(:username, :phone_num, :email, :theme_choice)
   end
 
 end

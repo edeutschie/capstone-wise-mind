@@ -4,8 +4,30 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+borrower:
+  text: Neither a borrow nor a lender be for loan oft loses both itself and friend.
+  author: William Shakespeare
+  theme: Motivational
+  public: true
+  user_id: nil
+
+twister:
+  text: She sells seashells down by the seashore.
+  author: Anonymous
+  theme: Motivational
+  public: true
+  user_id: nil
+
+zappa:
+  text: So many books, so little time.
+  author: Frank Zappa
+  theme: Motivational
+  public: true
+  user_id: nil
+
+groucho:
+  text: Outside of a dog, a book is man's best friend.  Inside of a dog, it's too dark to read.
+  author: Groucho Marx
+  theme: Motivational
+  public: true
+  user_id: nil

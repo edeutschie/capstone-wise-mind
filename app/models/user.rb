@@ -7,10 +7,20 @@ class User < ApplicationRecord
 
   before_validation :clean_up_phone_num
 
-  validates :phone_num, presence: true
+  validates :username, uniqueness: true, presence: true
+  validates :phone_num, uniqueness: true, presence: true, length: { is: 10 }#, inclusion: { in:  /[^0-9]/ }
+  # validates :phone_num, uniqueness: true, presence: true, format: { with: /\A\d+\Z/ }, length: { is: 10 }
+  # validates :phone_num, uniqueness: true, presence: true, format: { with: /^\d+$/ }, length: { is: 10 }
+  # validates :phone_num, uniqueness: true, presence: true, format: { with: /\d/ }, length: { is: 10 }
+  validates :email, uniqueness: true, presence: true
+  validates :theme_choice, presence: true, inclusion: {
+    in: [ "Motivational", "Creativity", "My Quotes", "Shuffle"]
+  }
 
   def clean_up_phone_num
-    return self.phone_num.gsub(/[^0-9]/, '')
+    puts "WE'RE HERE PEEPS"
+    self.phone_num = self.phone_num.gsub(/[^0-9]/, '')
+    # phone_num = self.phone_num.gsub(/[^0-9]/, '') unless phone_num.nil?
   end
 
   # def rando
