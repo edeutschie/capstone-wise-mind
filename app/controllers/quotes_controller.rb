@@ -22,6 +22,20 @@ class QuotesController < ApplicationController
     end
   end
 
+  def destroy
+    quote = Quote.find_by(id: params[:id])
+    if quote.nil?
+      render status: :not_found
+    else
+      # if quote.user_id == user_id
+        quote.destroy
+        render status: :no_content
+      # else
+      #   render status: :unauthorized, json: { error: 'You must have submitted a quote to be authorized to delete it.' }
+      # end
+    end
+  end
+
   private
 
   def quote_params
