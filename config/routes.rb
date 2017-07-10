@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   post 'users', to: 'users#create'
   delete 'users/:id', to: 'users#destroy'
 
+  get 'users/:id/daily_quote', to: 'users', as: 'daily_quote'
+  get 'users/:id/quotes', to: 'users#submitted_quotes', as: 'submitted_quotes'
+
 end

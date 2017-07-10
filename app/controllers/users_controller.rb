@@ -36,6 +36,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def submitted_quotes
+    # require_login
+    # user = User.find_by(id: current_user.id)
+    user = User.find_by(id: params[:id])
+    render json: user.submitted_quotes
+  end
+
   private
 
   def user_params
