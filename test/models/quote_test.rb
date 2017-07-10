@@ -10,7 +10,7 @@ describe Quote do
     end
 
     it "can be created with all attributes" do
-      quote = Quote.create!(text: 'This is a Zappa quote.', theme: 'Motivational', public: true, user_id: nil)
+      quote = Quote.create!(text: 'This is a Zappa quote.', author: "Frank Zappa", theme: 'Motivational', public: true, user_id: nil)
       quote.valid?.must_equal true
     end
 

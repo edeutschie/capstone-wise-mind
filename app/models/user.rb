@@ -18,9 +18,7 @@ class User < ApplicationRecord
   }
 
   def clean_up_phone_num
-    puts "WE'RE HERE PEEPS"
-    self.phone_num = self.phone_num.gsub(/[^0-9]/, '')
-    # phone_num = self.phone_num.gsub(/[^0-9]/, '') unless phone_num.nil?
+    self.phone_num = self.phone_num.gsub(/[^0-9]/, '') #unless phone_num.nil?
   end
 
   # def rando
