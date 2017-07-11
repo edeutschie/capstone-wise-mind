@@ -36,6 +36,13 @@ class QuotesController < ApplicationController
     end
   end
 
+  def theme
+    theme = params[:theme]
+    theme_quotes = Quote.where(theme: theme)
+
+    render status: :ok, json: theme_quotes
+  end
+
   private
 
   def quote_params
