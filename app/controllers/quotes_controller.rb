@@ -44,9 +44,13 @@ class QuotesController < ApplicationController
   end
 
   def daily_quote
-    quote = Quote.order("RANDOM()").first
-    
-    render status: :ok, json: quote
+    potential_quote = Quote.order("RANDOM()").first
+    if potential_quote.date_used + 32.days >= Date.today
+      daily_quote = potential_quote
+      quote.date_used = Date.today
+
+
+    render status: :ok, json: daily_quote
 
     # @motivational_quote = Quote.order("RANDOM()").first
     # @creativity_quote =
