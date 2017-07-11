@@ -14,7 +14,7 @@ class User < ApplicationRecord
   # validates :phone_num, uniqueness: true, presence: true, format: { with: /\d/ }, length: { is: 10 }
   validates :email, uniqueness: true, presence: true
   validates :theme_choice, presence: true, inclusion: {
-    in: [ "Motivational", "Creativity", "My Quotes", "Shuffle"]
+    in: [ "motivational", "creativity", "my quotes", "shuffle"]
   }
 
   def clean_up_phone_num

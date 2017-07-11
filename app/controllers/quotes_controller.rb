@@ -44,11 +44,14 @@ class QuotesController < ApplicationController
   end
 
   def daily_quote
-    potential_quote = Quote.order("RANDOM()").first
-    if potential_quote.date_used + 32.days >= Date.today
-      daily_quote = potential_quote
-      quote.date_used = Date.today
+    daily_quote = "Not set yet"
+    proposed_quote = Quote.order("RANDOM()").first
+    if proposed_quote.date_used + 32.days >= Date.today
+      daily_quote = proposed_quote
 
+    else
+      
+    end
 
     render status: :ok, json: daily_quote
 

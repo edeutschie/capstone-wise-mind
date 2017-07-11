@@ -14,5 +14,5 @@ Quote.create(author: "Anais Nin", text: "And the day came when the risk to remai
 Quote.create(author: "Kermit the Frog", text: "It's not easy being green.", theme: "motivational", public: true, user_id: "admin", date_used: Date.today - 5.days)
 Quote.create(author: "Martha Graham", text: "There is a vitality, a life force, an energy, a quickening that is translated through you into action, and because there is only one of you in all time, this expression is unique. And if you block it, it will never exist through any other medium and will be lost.", theme: "creativity", public: true, user_id: "admin", date_used: Date.today - 5.days)
 
-User.create(username: "Elizabeth", phone_num: "2065551212", email: "elizabeth@example.com", theme_choice: "motivational")
-# User.create(username: "Elizabeth", phone_num: "2065551212", email: "elizabeth@example.com", theme_choice: "motivational", delivery_time: "11:00:00")
+User.create(username: "Elizabeth", phone_num: ENV['E_PHONE_NUM'] || "2055551212", email: ENV['E_EMAIL'] || "elizabeth@example.com", theme_choice: "motivational")
+# User.create(username: "Elizabeth", phone_num: ENV['E_PHONE_NUM'] || "2055551212", email: ENV['E_EMAIL'] || "elizabeth@example.com", theme_choice: "motivational", delivery_time: "11:00:00")

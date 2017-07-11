@@ -8,7 +8,7 @@ class Quote < ApplicationRecord
   validates :text, presence: true, uniqueness: true
   validates :author, presence: true
   validates :theme, presence: true, inclusion: {
-    in: [ "Motivational", "Creativity", "My Quotes", "Shuffle"]
+    in: [ "motivational", "creativity", "my quotes", "shuffle"]
   }
   validates :public, inclusion: { in: [ true, false ] }
 
