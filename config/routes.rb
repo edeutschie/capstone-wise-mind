@@ -4,15 +4,14 @@ theme_constraints = {
   theme: /(Motivational)|(Creativity)|(My Quotes)|(Shuffle)/
 }
 
-  # get 'quotes(/:theme)', to: 'quotes#index', as: 'quotes', constraints: theme_constraints
-
   get 'quotes(/:theme)', to: 'quotes#theme', as: 'theme_quotes', constraints: theme_constraints
+  get 'qutoes(/:theme)/daily_quote', to: 'quotes#daily_quote', as: 'daily_quote'
 
   get 'quotes', to: 'quotes#index', as: 'quotes'
   get 'quotes/:id', to:'quotes#show', as: 'quote'
   post 'quotes', to: 'quotes#create'
   delete 'quotes/:id', to: 'quotes#destroy'
-  # get 'quotes(/:theme)', to: 'quotes#theme', as: 'theme_quotes', constraints: theme_constraints
+
 
   get 'users', to: 'users#index', as: 'users'
   get 'users/:id', to: 'users#show', as: 'user'

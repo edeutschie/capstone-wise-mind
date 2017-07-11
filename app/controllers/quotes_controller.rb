@@ -43,7 +43,9 @@ class QuotesController < ApplicationController
     render status: :ok, json: theme_quotes
   end
 
-  private
+  def daily_quote
+
+  end
 
   def quote_params
     params.require(:quote).permit(:text, :author, :theme, :public, :user_id)
