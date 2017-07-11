@@ -44,6 +44,17 @@ class QuotesController < ApplicationController
   end
 
   def daily_quote
+    quote = Quote.order("RANDOM()").first
+    
+    render status: :ok, json: quote
+
+    # @motivational_quote = Quote.order("RANDOM()").first
+    # @creativity_quote =
+
+    # data = Hash[row.headers.zip(row.fields)]
+    # data[:category] = ["air", "tropical", "succulents", "cacti", "herbs", "trees", "planters"].sample
+    # data[:merchant_id] = rand(1..21)
+    # Product.create!(data)
 
   end
 
