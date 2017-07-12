@@ -50,7 +50,7 @@ class QuotesController < ApplicationController
       daily_quote = proposed_quote
 
     else
-      
+
     end
 
     render status: :ok, json: daily_quote
