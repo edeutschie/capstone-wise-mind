@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170711214132) do
+ActiveRecord::Schema.define(version: 20170712211717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "daily_quotes", force: :cascade do |t|
+    t.date     "date_used"
+    t.string   "theme"
+    t.integer  "quote_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quote_id"], name: "index_daily_quotes_on_quote_id", using: :btree
+  end
 
   create_table "quote_users", force: :cascade do |t|
     t.integer  "quote_id"

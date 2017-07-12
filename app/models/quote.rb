@@ -2,6 +2,7 @@ class Quote < ApplicationRecord
   # has_and_belongs_to_many :users
   has_many :quotesusers
   has_many :users, through: :quotesusers
+  has_many :dailyquotes
 
   belongs_to :user, optional: true
 
