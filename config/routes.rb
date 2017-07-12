@@ -16,6 +16,7 @@ theme_constraints = {
   delete 'quotes/:id', to: 'quotes#destroy'
 
 
+
   get 'users', to: 'users#index', as: 'users'
   get 'users/:id', to: 'users#show', as: 'user'
   post 'users', to: 'users#create'

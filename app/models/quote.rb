@@ -3,7 +3,7 @@ class Quote < ApplicationRecord
   has_many :quotesusers
   has_many :users, through: :quotesusers
 
-  belongs_to :user
+  belongs_to :user, optional: true
 
   validates :text, presence: true, uniqueness: true
   validates :author, presence: true
