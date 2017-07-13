@@ -7,7 +7,7 @@ theme_constraints = {
   get 'quotes', to: 'quotes#index', as: 'quotes'
   get 'quotes(/:theme)', to: 'quotes#theme', as: 'theme_quotes', constraints: theme_constraints
   # get 'quotes(/:theme)/daily_quote', to: 'quotes#daily_quote', as: 'daily_quote'
-  get 'quotes/daily_quote', to: 'quotes#daily_quote', as: 'daily_quote'
+  # get 'quotes/daily_quote', to: 'quotes#daily_quote', as: 'daily_quote'
 
 
   # get 'quotes', to: 'quotes#index', as: 'quotes'
@@ -24,5 +24,7 @@ theme_constraints = {
 
   # get 'users/:id/daily_quote', to: 'users', as: 'daily_quote'
   get 'users/:id/quotes', to: 'users#submitted_quotes', as: 'submitted_quotes'
+
+  get 'dailyquotes(/:theme)', to: 'dailyquotes#show', as: 'dailyquote', constraints: theme_constraints
 
 end
