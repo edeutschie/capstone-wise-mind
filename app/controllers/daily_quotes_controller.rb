@@ -1,7 +1,8 @@
-class DailyQuoteController < ApplicationController
+class DailyQuotesController < ApplicationController
 
   #make controller with show method - for users to interact with
   #calls the logic to checks for quote with the current date in db
+puts "in the dailyquotescontroller method"
 
   def show
     puts "in the show method"
@@ -11,9 +12,14 @@ class DailyQuoteController < ApplicationController
     # if DailyQuote.where()
 
     #check to see if there is a Dailyquote in the system that is of the correct theme
-    check_for_daily_quote(theme)
+    dailyquote = DailyQuote.check_for_daily_quote(theme)
     #if there is
-    render status: :ok, json: dailyquote
+    if dailyquote
+      render status: :ok, json: dailyquote
+
+    else
+      render status: :not_found, json: { errors: daily_quotes.errors.messages }
+    end
 
     # else
         # daily_quote = "no dice"

@@ -6,7 +6,7 @@ class DailyQuote < ApplicationRecord
   validates :date_used, presence: true
   validates :theme, presence: true
 
-
+  belongs_to :quote
 
 
 # def theme
@@ -20,29 +20,47 @@ class DailyQuote < ApplicationRecord
 # all the logic from quote controller
 # make sure not used recently
 
-  def check_for_daily_quote(theme: params[:theme])
+  def self.check_for_daily_quote(theme)
     # look for daily quotes that are of the theme_choice and
     #who's date is today
-    dailyquote = DailyQuote.find_by(theme: theme, date_used == Date.today)
+    dailyquote = DailyQuote.find_by(theme: theme, date_used: Date.today)
     if dailyquote
     # return above dailyquote
-      return dailyquote
+      return dailyquote.quote
     else
-      generate_dailyquote
+      dailyquote = generate_dailyquote(theme)
     end
+    return dailyquote.quote
   end
 
-  def generate_dailyquote
+  def self.generate_dailyquote(theme)
+    puts "inside generate_dailyquote 1"
     #do a random call for a quote
-    proposed_quote = Quote.order("RANDOM()").first
+    possible = Quote.where(theme: theme, public: true,)
+    proposed_quote = possible.sample
+    # Quote.order("RANDOM()").first
+    #check to see that the date_used is long ago enough
+    #need to change this to 15 days once db is fleshed out.
+    if proposed_quote.date_used + 3.days <= Date.today
+      puts "inside first if loop"
     #make a new quote
-    dailyquote = DailyQuote.new(date_used: Date.today, theme: proposed_quote.theme, quote_id: proposed_quote.id)
-     if dailyquote.save
-       proposed_quote.date_used = Date.today
-       proposed_quote.save
-       return dailyquote
-    #  else
+      dailyquote = DailyQuote.new(date_used: Date.today, theme: proposed_quote.theme, quote_id: proposed_quote.id)
+      if dailyquote.save
+          puts "inside second if loop"
+        proposed_quote.date_used = Date.today
+        proposed_quote.save
+      else
+        puts "inside first else loop"
+        generate_dailyquote(theme)
+      #  dailyquote = "no dice 1"
      end
+   else
+       generate_dailyquote(theme)
+         puts "inside second else loop"
+     dailyquote = "no dice 2"
+   end
+   puts dailyquote
+   return dailyquote
   end
 
 # def check_freshness

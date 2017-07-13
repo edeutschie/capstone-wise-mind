@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Quote.create(author: "W. Somerset Maugham", text: "It's a funny thing about life; if you refuse to accept anything but the best, you very often get it.", theme: "motivational", public: true, user_id: nil, date_used: Date.today - 5.days)
-Quote.create(author: "Joseph Campbell", text: "Follow your bliss and doors will open where there were no doors befor.", theme: "motivational", public: true, user_id: nil, date_used: Date.today - 5.days)
+Quote.create(author: "Joseph Campbell", text: "Follow your bliss and doors will open where there were no doors before.", theme: "motivational", public: true, user_id: nil, date_used: Date.today - 5.days)
 Quote.create(author: "Miles Davis", text: "Do not fear mistakes.  There are none.", theme: "motivational", public: true, user_id: nil, date_used: Date.today - 5.days)
 Quote.create(author: "Anais Nin", text: "Life shrinks or expands in proportion to one's courage.", theme: "motivational", public: true, user_id: nil, date_used: Date.today - 5.days)
 Quote.create(author: "Anais Nin", text: "And the day came when the risk to remain tight in a bud was more painful than the risk it took to blossom.", theme: "motivational", public: true, user_id: nil, date_used: Date.today - 5.days)

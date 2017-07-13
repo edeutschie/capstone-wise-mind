@@ -25,6 +25,6 @@ theme_constraints = {
   # get 'users/:id/daily_quote', to: 'users', as: 'daily_quote'
   get 'users/:id/quotes', to: 'users#submitted_quotes', as: 'submitted_quotes'
 
-  get 'dailyquotes(/:theme)', to: 'dailyquotes#show', as: 'dailyquote', constraints: theme_constraints
+  get 'dailyquotes(/:theme)', to: 'daily_quotes#show', as: 'dailyquote', constraints: theme_constraints
 
 end
