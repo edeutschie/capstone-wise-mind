@@ -21,7 +21,4 @@ class User < ApplicationRecord
     self.phone_num = self.phone_num.gsub(/[^0-9]/, '') #unless phone_num.nil?
   end
 
-  # def rando
-  #   return 2 + 2
-  # end
 end

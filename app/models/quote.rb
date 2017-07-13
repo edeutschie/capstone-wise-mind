@@ -13,9 +13,6 @@ class Quote < ApplicationRecord
   }
   validates :public, inclusion: { in: [ true, false ] }
 
-  # def rando
-  #   return 5 + 5
-  # end
   #validates :user_id, presence: true, numericality: {only_integer: true, greater_than: 0}, on: :create
 
 end

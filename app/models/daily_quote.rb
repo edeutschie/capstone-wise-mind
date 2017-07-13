@@ -8,18 +8,6 @@ class DailyQuote < ApplicationRecord
 
   belongs_to :quote
 
-
-# def theme
-#   theme = params[:theme]
-#   theme_quotes = Quote.where(theme: theme)
-#
-#   render status: :ok, json: theme_quotes
-# end
-
-#calling model method
-# all the logic from quote controller
-# make sure not used recently
-
   def self.check_for_daily_quote(theme)
     # look for daily quotes that are of the theme_choice and
     #who's date is today
@@ -36,10 +24,14 @@ class DailyQuote < ApplicationRecord
   def self.generate_dailyquote(theme)
     puts "inside generate_dailyquote 1"
     #do a random call for a quote
-    possible = Quote.where(theme: theme, public: true,)
+    possible = Quote.where(theme: theme, public: true)
+
     proposed_quote = possible.sample
+    possible.delete(proposed_quote)
     # Quote.order("RANDOM()").first
     #check to see that the date_used is long ago enough
+
+    ########ACTION ITEM!
     #need to change this to 15 days once db is fleshed out.
     if proposed_quote.date_used + 3.days <= Date.today
       puts "inside first if loop"
@@ -49,22 +41,21 @@ class DailyQuote < ApplicationRecord
           puts "inside second if loop"
         proposed_quote.date_used = Date.today
         proposed_quote.save
-      else
+      elsif possible.length > 0
         puts "inside first else loop"
         generate_dailyquote(theme)
-      #  dailyquote = "no dice 1"
      end
    else
-       generate_dailyquote(theme)
-         puts "inside second else loop"
-     dailyquote = "no dice 2"
+       generate_dailyquote(theme)  # I GET STUCK HERE WITH THE RECURSIVE IF NO QUOTES LEFT
+        puts "inside second else loop"
    end
    puts dailyquote
    return dailyquote
   end
 
-# def check_freshness
-# end
+  def verify_dailyquote
+    
+  end
 
 
   # def daily_quote
