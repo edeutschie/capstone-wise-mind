@@ -4,6 +4,7 @@ class DailyQuotesController < ApplicationController
   #calls the logic to checks for quote with the current date in db
 
   def show
+    puts "in show method"
     #establish theme
     theme = params[:theme]
     #check to see if there is a dailyquote in the system that is of the correct theme
