@@ -49,14 +49,14 @@ class DailyQuote < ApplicationRecord
           proposed_quote.date_used = Date.today
           proposed_quote.save
           return dailyquote
-       end
-     end
-   end
+        end
+      end
+    end
   #  puts dailyquote
-   if dailyquote
+    if dailyquote
     #  puts "line 68"
-     return dailyquote
-   else
+      return dailyquote
+    else
     # puts "line 72"
       possible = Quote.where(theme: theme, public: true)
       proposed_quote = possible.sample
@@ -65,7 +65,7 @@ class DailyQuote < ApplicationRecord
       proposed_quote.date_used = Date.today
       proposed_quote.save
       return dailyquote
-   end
+    end
   end
 
   # def self.verify_dailyquote(dailyquote)

@@ -30,5 +30,18 @@ module WiseMind
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*', 'localhost/8080'
+        resource '*', :headers => :any, :methods => [:get, :post, :put, :delete, :options]
+      end
+  # Allow CORS (cross origin resource sharing)
+  # Read More: https://demisx.github.io/rails-api/2014/02/18/configure-accept-headers-cors.html
+    # config.Access-Control-Allow-Origin.action_dispatch.default_headers = {
+  # Access-Control-Allow-Origin = 'http://my-web-service-consumer-site.com'
+  # Access-Control-Request-Method = %w{GET POST OPTIONS}.join(",")
+
+    end
   end
 end
