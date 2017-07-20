@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get '/auth/github', to: 'authentication#github', format: false
+
 theme_constraints = {
   theme: /(motivational)|(creativity)|(my quotes)|(shuffle)/
 }
