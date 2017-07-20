@@ -19,8 +19,11 @@ gem 'puma', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Use Faraday as HTTP client
 gem 'faraday', '~> 0.11'
 
+# Encode JWT tokens
+gem 'jwt', '~> 1.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
