@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!  #exception
 
   def index
     users = User.all
@@ -7,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    user = User.find(params[:id])
+    user = @current_user#.find(params[:id])
 
     render status: :ok, json: user
   end
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find_by(id: params[:id])
+    user = @current_user#.User.find_by(id: params[:id])
     if user.nil?
       render status: :not_found
     else

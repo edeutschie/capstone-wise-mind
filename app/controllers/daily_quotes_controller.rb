@@ -1,4 +1,5 @@
 class DailyQuotesController < ApplicationController
+  # before_action :authenticate_user!
 
   #make controller with show method - for users to interact with
   #calls the logic to checks for quote with the current date in db
