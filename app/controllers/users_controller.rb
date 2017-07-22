@@ -23,6 +23,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    user = @current_user
+    if user.nil?
+      render status: :not_found
+    else
+      user.update_attributes(user_params)
+      if user.save
+        render status: :ok, json: user
+      else
+        render status: :bad_request, json: { errors: user.errors.messages }
+      end
+    end
+  end
+
   def destroy
     user = @current_user#.User.find_by(id: params[:id])
     if user.nil?

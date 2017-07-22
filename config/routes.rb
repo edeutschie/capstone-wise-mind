@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
 
 theme_constraints = {
-  theme: /(motivational)|(creativity)|(my quotes)|(shuffle)/
+  theme: /(motivational)|(creativity)|(adies_in_internship)/
 }
 
   get 'quotes', to: 'quotes#index', as: 'quotes'
@@ -31,6 +31,7 @@ theme_constraints = {
   get 'users/:id', to: 'users#show', as: 'user'
   post 'users', to: 'users#create'
   delete 'users/:id', to: 'users#destroy'
+  patch 'users/:id', 'users#update'
 
   # get 'users/:id/daily_quote', to: 'users', as: 'daily_quote'
   get 'users/:id/quotes', to: 'users#submitted_quotes', as: 'submitted_quotes'
