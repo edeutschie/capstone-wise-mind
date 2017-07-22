@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   # scopes = JSON.parse(result)['scope'].split(',')
   # has_user_email_scope = scopes.include? 'user:name'
 
-  get "/auth/github/callback", to: 'authentication#github', format: false
+  get '/auth/github/callback', to: 'authentication#github', format: false
+
+  # get "/auth/github/callback", to: 'authentication#github', format: false
 
 
 
