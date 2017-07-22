@@ -3,6 +3,13 @@ Rails.application.routes.draw do
 
   get '/auth/github', to: 'authentication#github', format: false
 
+  # scopes = JSON.parse(result)['scope'].split(',')
+  # has_user_email_scope = scopes.include? 'user:name'
+
+  get "/auth/github/callback", to: 'authentication#github', format: false
+
+
+
 theme_constraints = {
   theme: /(motivational)|(creativity)|(my quotes)|(shuffle)/
 }

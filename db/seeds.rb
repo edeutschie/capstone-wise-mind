@@ -17,5 +17,5 @@ Quote.create(author: "Vincent Van Gogh", text: "If you hear a voice within you s
 Quote.create(author: "Buddha", text: "Whatever a person frequently thinks and reflects on, that will become the inclination of their mind.", theme: "motivational", public: true, user_id: nil, date_used: Date.today - 5.days)
 Quote.create(author: "George Bernard Shaw", text: "Life isn't about finding yourself. It is about creating yourself.", theme: "creativity", public: true, user_id: nil, date_used: Date.today - 5.days)
 
-User.create(username: "Elizabeth", phone_num: ENV['E_PHONE_NUM'] || "2055551212", email: ENV['E_EMAIL'] || "elizabeth@example.com", theme_choice: "creativity")
+# User.create(username: "Elizabeth", phone_num: ENV['E_PHONE_NUM'] || "2055551212", email: ENV['E_EMAIL'] || "elizabeth@example.com", theme_choice: "creativity")
 # User.create(username: "Elizabeth", phone_num: ENV['E_PHONE_NUM'] || "2055551212", email: ENV['E_EMAIL'] || "elizabeth@example.com", theme_choice: "motivational", delivery_time: "11:00:00")
