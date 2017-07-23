@@ -1,7 +1,7 @@
 class DailyQuote < ApplicationRecord
 
   validates :theme, presence: true, inclusion: {
-    in: [ "motivational", "creativity", "my quotes", "shuffle"]
+    in: [ "motivational", "creativity", "adies_in_internship"]
   }
   validates :date_used, presence: true
   validates :theme, presence: true
@@ -40,7 +40,7 @@ class DailyQuote < ApplicationRecord
 
       ########ACTION ITEM!
       #need to change this to 15 days once db is fleshed out.
-      if proposed_quote.date_used + 8.days <= Date.today
+      if proposed_quote.date_used + 5.days <= Date.today
         # puts "inside first if loop"
       #make a new quote
         dailyquote = DailyQuote.new(date_used: Date.today, theme: proposed_quote.theme, quote_id: proposed_quote.id)

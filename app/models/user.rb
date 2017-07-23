@@ -17,9 +17,9 @@ class User < ApplicationRecord
   # validates :phone_num, uniqueness: true, presence: true, format: { with: /^\d+$/ }, length: { is: 10 }
   # validates :phone_num, uniqueness: true, presence: true, format: { with: /\d/ }, length: { is: 10 }
   # validates :email, uniqueness: true, presence: true
-  # validates :theme_choice, presence: true, inclusion: {
-    # in: [ "motivational", "creativity", "my quotes", "shuffle"]
-  # }
+  validates :theme_choice, presence: true, inclusion: {
+    in: [ "motivational", "creativity", "adies_in_internship"]
+  }
 
   def clean_up_phone_num
     self.phone_num = self.phone_num.gsub(/[^0-9]/, '') #unless phone_num.nil?

@@ -30,10 +30,12 @@ theme_constraints = {
 
 
   get 'users', to: 'users#index', as: 'users'
-  get 'users/:id', to: 'users#show', as: 'user'
   post 'users', to: 'users#create'
+
+  get 'users/:login', to: 'users#show', as: 'user'
+  patch 'users/:login', to: 'users#update'
   delete 'users/:id', to: 'users#destroy'
-  patch 'users/:id', 'users#update'
+
 
   # get 'users/:id/daily_quote', to: 'users', as: 'daily_quote'
   get 'users/:id/quotes', to: 'users#submitted_quotes', as: 'submitted_quotes'

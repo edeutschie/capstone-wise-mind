@@ -8,7 +8,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    user = @current_user#.find(params[:id])
+    # token = params[:token]
+    # puts params
+    # binding.pry
+    login = TokiToki.decode(params[:token]).first["sub"]
+    # fix above with error checking
+    user = User.find_by(login: login)
+    # user = @current_user#.find(params[:id])
 
     render status: :ok, json: user
   end
@@ -24,7 +30,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = @current_user
+    login = TokiToki.decode(token)
+    user = User.find_by(login: login)
+    binding.pry
     if user.nil?
       render status: :not_found
     else
@@ -38,7 +46,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = @current_user#.User.find_by(id: params[:id])
+    login = TokiToki.decode(token)
+    user = User.find_by(login: login)
+    # user = @current_user#.User.find_by(id: params[:id])
     if user.nil?
       render status: :not_found
     else
@@ -61,7 +71,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :phone_num, :email, :theme_choice)
+    params.require(:user).permit(:username, :phone_num, :email, :theme_choice, :login)
   end
 
 end
