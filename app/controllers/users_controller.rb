@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     login = TokiToki.decode(params[:token]).first["sub"]
     # fix above with error checking
     user = User.find_by(login: login)
-    # user = @current_user#.find(params[:id])
+    # user = @user#.find(params[:id])
 
     render status: :ok, json: user
   end
@@ -30,9 +30,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    login = TokiToki.decode(token)
+    # binding.pry
+    # login = TokiToki.decode(token)
+    # login = TokiToki.decode(params[:token])
+    login = TokiToki.decode(params[:token]).first["sub"]
+
     user = User.find_by(login: login)
-    binding.pry
+    # user = User.find_by(login: login)
+    # binding.pry
     if user.nil?
       render status: :not_found
     else
@@ -48,7 +53,7 @@ class UsersController < ApplicationController
   def destroy
     login = TokiToki.decode(token)
     user = User.find_by(login: login)
-    # user = @current_user#.User.find_by(id: params[:id])
+    # user = @user#.User.find_by(id: params[:id])
     if user.nil?
       render status: :not_found
     else
@@ -63,7 +68,7 @@ class UsersController < ApplicationController
 
   def submitted_quotes
     # require_login
-    # user = User.find_by(id: current_user.id)
+    # user = User.find_by(id: user.id)
     user = User.find_by(id: params[:id])
     render json: user.submitted_quotes
   end

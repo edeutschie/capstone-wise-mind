@@ -34,7 +34,7 @@ module WiseMind
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*', 'localhost/8080'
-        resource '*', :headers => :any, :methods => [:get, :post, :put, :delete, :options]
+        resource '*', :headers => :any, :methods => [:get, :post, :put, :patch, :delete, :options]
       end
   # Allow CORS (cross origin resource sharing)
   # Read More: https://demisx.github.io/rails-api/2014/02/18/configure-accept-headers-cors.html
