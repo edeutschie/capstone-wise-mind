@@ -8,13 +8,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    # token = params[:token]
-    # puts params
-    # binding.pry
     login = TokiToki.decode(params[:token]).first["sub"]
     # fix above with error checking
     user = User.find_by(login: login)
-    # user = @user#.find(params[:id])
 
     render status: :ok, json: user
   end
@@ -30,21 +26,18 @@ class UsersController < ApplicationController
   end
 
   def update
-    # binding.pry
     # login = TokiToki.decode(token)
     # login = TokiToki.decode(params[:token])
     login = TokiToki.decode(params[:token]).first["sub"]
-
     user = User.find_by(login: login)
-    # user = User.find_by(login: login)
-    # binding.pry
-    if user.nil?
+    if user.nil?#user.nil?
       render status: :not_found
     else
       user.update_attributes(user_params)
       if user.save
         render status: :ok, json: user
       else
+        puts user.errors.messages
         render status: :bad_request, json: { errors: user.errors.messages }
       end
     end

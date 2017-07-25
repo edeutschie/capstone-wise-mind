@@ -8,8 +8,7 @@ Rails.application.routes.draw do
 
   get '/auth/github/callback', to: 'authentication#github', format: false
 
-  # get "/auth/github/callback", to: 'authentication#github', format: false
-
+  post 'notifications/notify' => 'notifications#notify'
 
 
 theme_constraints = {

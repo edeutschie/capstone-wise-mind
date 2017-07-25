@@ -22,6 +22,8 @@ gem 'puma', '~> 3.0'
 # Use Faraday as HTTP client
 gem 'faraday', '~> 0.11'
 
+gem 'twilio-ruby', '~> 3.12'
+
 # Encode JWT tokens
 gem 'jwt', '~> 1.5'
 # Use Capistrano for deployment
