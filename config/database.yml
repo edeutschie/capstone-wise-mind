@@ -84,7 +84,7 @@ test:
 #   username: wise_mind
 #   password: <%= ENV['WISE_MIND_DATABASE_PASSWORD'] %>
 
-  production:
+production:
   <<: *default
   database: <%= ENV["RDS_DB_NAME"] %>
   username: <%= ENV["RDS_USERNAME"] %>
