@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
     token = params[:token]
     payload = TokiToki.decode(token)
     @current_user ||= User.find_by_login(payload[0]['sub'])
-    # User.find_by_login(payload[0]['sub'])
   end
 
   def logged_in?

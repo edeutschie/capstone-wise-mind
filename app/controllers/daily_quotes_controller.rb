@@ -20,7 +20,6 @@ class DailyQuotesController < ApplicationController
 
   private
 
-#do I need this?
   def dailyquote_params
     params.require(:dailyquote).permit(:theme, :quote_id, :date_used)
   end

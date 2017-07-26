@@ -12,18 +12,18 @@ theme_constraints = {
 }
 
   get 'quotes', to: 'quotes#index', as: 'quotes'
-  get 'quotes(/:theme)', to: 'quotes#theme', as: 'theme_quotes', constraints: theme_constraints
+  ##get 'quotes(/:theme)', to: 'quotes#theme', as: 'theme_quotes', constraints: theme_constraints
   # get 'quotes(/:theme)/daily_quote', to: 'quotes#daily_quote', as: 'daily_quote'
-  get 'quotes/daily_quote', to: 'quotes#daily_quote', as: 'daily_quote'
+  ##get 'quotes/daily_quote', to: 'quotes#daily_quote', as: 'daily_quote'
 
 
   # get 'quotes', to: 'quotes#index', as: 'quotes'
-  get 'quotes/:id', to:'quotes#show', as: 'quote'
+  ##get 'quotes/:id', to:'quotes#show', as: 'quote'
   # post 'quotes', to: 'quotes#create'
   # delete 'quotes/:id', to: 'quotes#destroy'
 
   # get 'users', to: 'users#index', as: 'users'
-  post 'users', to: 'users#create'
+  ##post 'users', to: 'users#create'
 
   get 'users/:login', to: 'users#show', as: 'user'
   patch 'users/:login', to: 'users#update'

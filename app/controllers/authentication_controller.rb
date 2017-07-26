@@ -2,11 +2,8 @@ class AuthenticationController < ApplicationController
   def github
     authenticator = Authenticator.new
     user_info = authenticator.github(params[:code])
-    # binding.pry
     login = user_info[:login]
     name = user_info[:name]
-    # avatar_url = user_info[:avatar_url]
-
     # Generate token...
     token = TokiToki.encode(login)
     # ... create user if it doesn't exist...
