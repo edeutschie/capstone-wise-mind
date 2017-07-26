@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     # login = TokiToki.decode(params[:token])
     login = TokiToki.decode(params[:token]).first["sub"]
     user = User.find_by(login: login)
-    if user.nil?#user.nil?
+    if user.nil?
       render status: :not_found
     else
       user.update_attributes(user_params)
@@ -43,28 +43,28 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-    login = TokiToki.decode(token)
-    user = User.find_by(login: login)
-    # user = @user#.User.find_by(id: params[:id])
-    if user.nil?
-      render status: :not_found
-    else
-      # if quote.user_id == user_id
-        user.destroy
-        render status: :no_content
-      # else
-      #   render status: :unauthorized, json: { error: 'You must have submitted a quote to be authorized to delete it.' }
-      # end
-    end
-  end
+  # def destroy
+  #   login = TokiToki.decode(token)
+  #   user = User.find_by(login: login)
+  #   # user = @user#.User.find_by(id: params[:id])
+  #   if user.nil?
+  #     render status: :not_found
+  #   else
+  #     # if quote.user_id == user_id
+  #       user.destroy
+  #       render status: :no_content
+  #     # else
+  #     #   render status: :unauthorized, json: { error: 'You must have submitted a quote to be authorized to delete it.' }
+  #     # end
+  #   end
+  # end
 
-  def submitted_quotes
-    # require_login
-    # user = User.find_by(id: user.id)
-    user = User.find_by(id: params[:id])
-    render json: user.submitted_quotes
-  end
+  # def submitted_quotes
+  #   # require_login
+  #   # user = User.find_by(id: user.id)
+  #   user = User.find_by(id: params[:id])
+  #   render json: user.submitted_quotes
+  # end
 
   private
 
