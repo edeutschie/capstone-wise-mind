@@ -1,7 +1,6 @@
 class AuthenticationController < ApplicationController
   def github
     authenticator = Authenticator.new
-    binding.pry
     user_info = authenticator.github(params[:code])
     login = user_info[:login]
     name = user_info[:name]
