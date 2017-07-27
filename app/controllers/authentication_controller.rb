@@ -1,6 +1,10 @@
 class AuthenticationController < ApplicationController
   def github
     authenticator = Authenticator.new
+    puts "params"
+    puts params
+      puts "params[:code]"
+    puts params[:code]
     user_info = authenticator.github(params[:code])
     login = user_info[:login]
     name = user_info[:name]
