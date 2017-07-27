@@ -7,6 +7,8 @@ class AuthenticationController < ApplicationController
     puts params[:code]
     user_info = authenticator.github(params[:code])
     login = user_info[:login]
+    puts "login"
+    puts login
     name = user_info[:name]
     # Generate token...
     token = TokiToki.encode(login)
@@ -19,8 +21,8 @@ class AuthenticationController < ApplicationController
     # ... and redirect to client app.
     # response.cookies["userID"] = loggedInUser.id
     redirect_to "#{issuer}?token=#{token}"
-  rescue StandardError => error
-    redirect_to "#{issuer}?error=#{error.message}"
+  # rescue StandardError => error
+    # redirect_to "#{issuer}?error=#{error.message}"
   end
 
   private
