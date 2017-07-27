@@ -9,8 +9,8 @@ class UsersController < ApplicationController
 
   def show
 
-    login = TokiToki.decode(params[:token]).first["login"]
-    # login = TokiToki.decode(params[:token]).first["sub"]
+    # login = TokiToki.decode(params[:token]).first["login"]
+    login = TokiToki.decode(params[:token]).first["sub"]
     # fix above with error checking
     user = User.find_by(login: login)
     if user
