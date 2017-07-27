@@ -33,7 +33,7 @@ module WiseMind
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins '*', 'localhost/8080'
+        origins '*', 'localhost/8080', 'http://wiseminding.s3-website-us-west-2.amazonaws.com/'
         resource '*', :headers => :any, :methods => [:get, :post, :put, :patch, :delete, :options]
       end
   # Allow CORS (cross origin resource sharing)
